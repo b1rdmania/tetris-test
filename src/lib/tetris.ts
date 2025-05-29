@@ -231,18 +231,13 @@ export const isValidPosition = (
         const newX = x + col;
         const newY = y + row;
 
-        // Check boundaries
-        if (
-          newX < 0 ||
-          newX >= grid[0].length ||
-          newY < 0 ||
-          newY >= grid.length
-        ) {
+        // Check boundaries (allow pieces above the top of the grid)
+        if (newX < 0 || newX >= grid[0].length || newY >= grid.length) {
           return false;
         }
 
-        // Check collision with existing pieces or bottom of screen
-        if ((newY >= 0 && grid[newY][newX] !== 0) || newY >= grid.length) {
+        // Check collision with existing pieces
+        if (newY >= 0 && grid[newY][newX] !== 0) {
           return false;
         }
       }
