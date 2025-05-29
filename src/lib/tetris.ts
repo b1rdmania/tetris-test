@@ -402,6 +402,11 @@ export const lockPiece = (state: TetrisState): TetrisState => {
     shapes.some((s) => JSON.stringify(s) === JSON.stringify(nextPiece.shape)),
   );
 
+  // Determine the color index for the current piece once
+  const currentColorIndex = SHAPES.findIndex((shapes) =>
+    shapes.some((s) => JSON.stringify(s) === JSON.stringify(currentPiece.shape)),
+  );
+
   // Add current piece to grid
   for (let row = 0; row < currentPiece.shape.length; row++) {
     for (let col = 0; col < currentPiece.shape[row].length; col++) {
@@ -415,13 +420,8 @@ export const lockPiece = (state: TetrisState): TetrisState => {
           gridCol >= 0 &&
           gridCol < newGrid[0].length
         ) {
-          // Use the shape color index + 1 (0 is empty)
-          const colorIndex = SHAPES.findIndex((shapes) =>
-            shapes.some(
-              (s) => JSON.stringify(s) === JSON.stringify(currentPiece.shape),
-            ),
-          );
-          newGrid[gridRow][gridCol] = colorIndex + 1;
+          // Use the precomputed shape color index + 1 (0 is empty)
+          newGrid[gridRow][gridCol] = currentColorIndex + 1;
         }
       }
     }
