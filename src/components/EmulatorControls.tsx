@@ -43,40 +43,56 @@ const EmulatorControls = ({
       <div className="relative w-32 h-32 mb-4">
         <button
           className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-md flex items-center justify-center ${activeButtons.up ? "bg-gray-500" : "bg-gray-700"}`}
-          onMouseDown={() => handleButtonDown("up")}
-          onMouseUp={() => handleButtonUp("up")}
-          onTouchStart={() => handleButtonDown("up")}
-          onTouchEnd={() => handleButtonUp("up")}
+          onPointerDown={(e) => {
+            e.preventDefault();
+            handleButtonDown("up");
+          }}
+          onPointerUp={(e) => {
+            e.preventDefault();
+            handleButtonUp("up");
+          }}
           aria-label="Up"
         >
           <ArrowUp className="text-white" size={20} />
         </button>
         <button
           className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-md flex items-center justify-center ${activeButtons.down ? "bg-gray-500" : "bg-gray-700"}`}
-          onMouseDown={() => handleButtonDown("down")}
-          onMouseUp={() => handleButtonUp("down")}
-          onTouchStart={() => handleButtonDown("down")}
-          onTouchEnd={() => handleButtonUp("down")}
+          onPointerDown={(e) => {
+            e.preventDefault();
+            handleButtonDown("down");
+          }}
+          onPointerUp={(e) => {
+            e.preventDefault();
+            handleButtonUp("down");
+          }}
           aria-label="Down"
         >
           <ArrowDown className="text-white" size={20} />
         </button>
         <button
           className={`absolute left-0 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-md flex items-center justify-center ${activeButtons.left ? "bg-gray-500" : "bg-gray-700"}`}
-          onMouseDown={() => handleButtonDown("left")}
-          onMouseUp={() => handleButtonUp("left")}
-          onTouchStart={() => handleButtonDown("left")}
-          onTouchEnd={() => handleButtonUp("left")}
+          onPointerDown={(e) => {
+            e.preventDefault();
+            handleButtonDown("left");
+          }}
+          onPointerUp={(e) => {
+            e.preventDefault();
+            handleButtonUp("left");
+          }}
           aria-label="Left"
         >
           <ArrowLeft className="text-white" size={20} />
         </button>
         <button
           className={`absolute right-0 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-md flex items-center justify-center ${activeButtons.right ? "bg-gray-500" : "bg-gray-700"}`}
-          onMouseDown={() => handleButtonDown("right")}
-          onMouseUp={() => handleButtonUp("right")}
-          onTouchStart={() => handleButtonDown("right")}
-          onTouchEnd={() => handleButtonUp("right")}
+          onPointerDown={(e) => {
+            e.preventDefault();
+            handleButtonDown("right");
+          }}
+          onPointerUp={(e) => {
+            e.preventDefault();
+            handleButtonUp("right");
+          }}
           aria-label="Right"
         >
           <ArrowRight className="text-white" size={20} />
@@ -92,20 +108,28 @@ const EmulatorControls = ({
             <Button
               variant="outline"
               className={`w-16 h-6 rounded-full text-xs ${activeButtons.select ? "bg-gray-400" : "bg-gray-300"}`}
-              onMouseDown={() => handleButtonDown("select")}
-              onMouseUp={() => handleButtonUp("select")}
-              onTouchStart={() => handleButtonDown("select")}
-              onTouchEnd={() => handleButtonUp("select")}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                handleButtonDown("select");
+              }}
+              onPointerUp={(e) => {
+                e.preventDefault();
+                handleButtonUp("select");
+              }}
             >
               SELECT
             </Button>
             <Button
               variant="outline"
               className={`w-16 h-6 rounded-full text-xs ${activeButtons.start ? "bg-gray-400" : "bg-gray-300"}`}
-              onMouseDown={() => handleButtonDown("start")}
-              onMouseUp={() => handleButtonUp("start")}
-              onTouchStart={() => handleButtonDown("start")}
-              onTouchEnd={() => handleButtonUp("start")}
+              onPointerDown={(e) => {
+                e.preventDefault();
+                handleButtonDown("start");
+              }}
+              onPointerUp={(e) => {
+                e.preventDefault();
+                handleButtonUp("start");
+              }}
             >
               START
             </Button>
@@ -117,19 +141,27 @@ const EmulatorControls = ({
         <div className="flex space-x-4 items-center">
           <button
             className={`w-12 h-12 rounded-full ${activeButtons.b ? "bg-red-600" : "bg-red-500"} text-white font-bold text-xl`}
-            onMouseDown={() => handleButtonDown("b")}
-            onMouseUp={() => handleButtonUp("b")}
-            onTouchStart={() => handleButtonDown("b")}
-            onTouchEnd={() => handleButtonUp("b")}
+            onPointerDown={(e) => {
+              e.preventDefault();
+              handleButtonDown("b");
+            }}
+            onPointerUp={(e) => {
+              e.preventDefault();
+              handleButtonUp("b");
+            }}
           >
             B
           </button>
           <button
             className={`w-12 h-12 rounded-full ${activeButtons.a ? "bg-red-600" : "bg-red-500"} text-white font-bold text-xl`}
-            onMouseDown={() => handleButtonDown("a")}
-            onMouseUp={() => handleButtonUp("a")}
-            onTouchStart={() => handleButtonDown("a")}
-            onTouchEnd={() => handleButtonUp("a")}
+            onPointerDown={(e) => {
+              e.preventDefault();
+              handleButtonDown("a");
+            }}
+            onPointerUp={(e) => {
+              e.preventDefault();
+              handleButtonUp("a");
+            }}
           >
             A
           </button>
